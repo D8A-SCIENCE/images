@@ -32,6 +32,7 @@ RUN curl -L https://ollama.com/download/ollama-linux-amd64 -o /tmp/ollama
 RUN chmod +x /tmp/ollama
 
 RUN mkdir /.ollama
+RUN chmod 777 /.ollama
 
 # Copy the current directory contents into the container at /app
 ADD . /app
