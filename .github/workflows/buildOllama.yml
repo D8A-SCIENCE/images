@@ -1,4 +1,4 @@
-name: Pytorch Image Build
+name: Ollama Build
 run-name: Build Ollama
 on: push
 jobs:
