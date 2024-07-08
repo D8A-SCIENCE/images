@@ -14,9 +14,9 @@ spec:
   containers:
   - name: ollama-container
     image: ghcr.io/d8a-science/wm-ollama:latest
-          volumeMounts:
-        - name: geograd
-          mountPath: /sciclone/geograd/
+    volumeMounts:
+      - name: geograd
+        mountPath: /sciclone/geograd/
     resources:
       limits:
         cpu: 2
