@@ -6,6 +6,7 @@ spec:
   restartPolicy: Always
   securityContext:
     runAsUser: 248465
+    runAsGroup: 9915
   volumes:
     - name: geograd
       nfs:
