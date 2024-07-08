@@ -14,7 +14,7 @@ url = "http://localhost:11434/api/chat"
 
 # Function to run "ollama run llama3"
 def start_ollama():
-    process = subprocess.Popen(["ollama", "run", "llama3"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(["./tmp/ollama", "run", "llama3"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     time.sleep(5)  # Wait a few seconds to give the server time to start
     return process
 
