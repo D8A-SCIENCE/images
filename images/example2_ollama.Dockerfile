@@ -11,10 +11,10 @@ RUN apt-get update && \
     curl \
     git \
     git-lfs \
-    python
+    python3.10
 
 # Install Prefect 2
-RUN pip install --ignore-installed prefect-kubernetes
+RUN pip install --ignore-installed prefect-kubernetes==0.3.10
 
 # Copy the current directory contents into the container at /app
 ADD . /app
