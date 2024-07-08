@@ -2,16 +2,28 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: ollama
-  namespace: ollama
 spec:
-  selector:
-    matchLabels:
-      name: ollama
-  template:
-    metadata:
-      labels:
-        name: ollama
-    spec:
-      containers:
-      - name: ollama
-        image: ghcr.io/d8a-science/wm-ollama:latest
+  restartPolicy: Always
+  securityContext:
+    runAsUser: 248465
+  volumes:
+    - name: geograd
+      nfs:
+        server: 128.239.59.144
+        path: /sciclone/geograd
+  containers:
+  - name: ollama-container
+    image: ghcr.io/d8a-science/wm-ollama:latest
+          volumeMounts:
+        - name: geograd
+          mountPath: /sciclone/geograd/
+    resources:
+      limits:
+        cpu: 2
+        nvidia.com/gpu: 1
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        echo "Double check the mount worked:"
+        ls /sciclone/geograd
+        sleep infinity
