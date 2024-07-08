@@ -19,18 +19,3 @@ spec:
         - name: http
           containerPort: 11434
           protocol: TCP
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ollama
-  namespace: ollama
-spec:
-  type: ClusterIP
-  selector:
-    name: ollama
-  ports:
-  - port: 80
-    name: http
-    targetPort: http
-    protocol: TCP
