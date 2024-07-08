@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: ollama
   namespace: ollama
@@ -15,7 +15,3 @@ spec:
       containers:
       - name: ollama
         image: ghcr.io/d8a-science/wm-ollama:latest
-        ports:
-        - name: http
-          containerPort: 11434
-          protocol: TCP
