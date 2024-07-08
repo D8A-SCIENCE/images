@@ -11,7 +11,8 @@ RUN apt-get update && \
     curl \
     git \
     git-lfs \
-    python3.10
+    python3.10 \
+    python3-pip
 
 # Install Prefect 2
 RUN pip install --ignore-installed prefect-kubernetes==0.3.10
