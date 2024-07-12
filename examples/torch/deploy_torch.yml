@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ollama
+  name: torch-generic
 spec:
   restartPolicy: Always
   securityContext:
@@ -13,7 +13,7 @@ spec:
         server: 128.239.59.144
         path: /sciclone/geograd
   containers:
-  - name: ollama-container
+  - name: torch-container
     image: ghcr.io/d8a-science/wm-pytorch:latest
     imagePullPolicy: Always
     volumeMounts:
