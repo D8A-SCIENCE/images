@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ollama
+spec:
+  restartPolicy: Always
+  securityContext:
+    runAsUser: 248465
+    runAsGroup: 9915
+  volumes:
+    - name: geograd
+      nfs:
+        server: 128.239.59.144
+        path: /sciclone/geograd
+  containers:
+  - name: ollama-container
+    image: ghcr.io/d8a-science/wm-pytorch:latest
+    imagePullPolicy: Always
+    volumeMounts:
+      - name: geograd
+        mountPath: /sciclone/geograd/
+    resources:
+      limits:
+        cpu: 2
+        nvidia.com/gpu: 1
+    command: ["/bin/sh", "-c"]
+    args:
+      - |
+        echo "Double check the mount worked:"
+        ls /sciclone/geograd
+        sleep infinity
